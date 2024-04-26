@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { useSession } from 'next-auth/react'
+
 
 export default function Home() {
   return (
@@ -15,7 +17,11 @@ export default function Home() {
         <p className="text-gray-700 mb-6">
           Understand who you know, how you know them, and how long you have known them. Automatically!
         </p>
-
+      {session ? (
+        <div className="sm:flex">
+        	Signed In!
+        </div>
+      ) : (
         <div className="sm:flex">
           <a
             href="https://forms.gle/igGEJNwqwFcCjdtD7"
@@ -24,6 +30,7 @@ export default function Home() {
             Join the Waitlist!
           </a>
         </div>
+     )}
       </div>
 
       {/* right side */}
